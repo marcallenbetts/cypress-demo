@@ -8,7 +8,7 @@ describe('cypress tests', () => {
     cy.getCookies().should('have.length', 0)
   })
 
-  it('save request as a fixture', () => {
+  it.skip('save request as a fixture', () => {
     cy.request('https://jsonplaceholder.typicode.com/todos/1').then(
       response => {
         cy.writeFile('cypress/fixtures/test.json', response.body)

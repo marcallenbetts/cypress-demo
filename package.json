@@ -7,6 +7,7 @@
     "test": "cypress run",
     "test:firefox": "cypress run --browser firefox",
     "test:chrome": "cypress run --browser chrome",
+    "test:docker": "docker-compose up --exit-code-from cypress",
     "cypress": "cypress open"
   },
   "keywords": [],

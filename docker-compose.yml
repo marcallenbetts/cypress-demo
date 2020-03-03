@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  theinternet:
+    image: gprestes/the-internet
+    ports:
+      - '5000:5000'
+  cypress:
+    image: cypress/included:4.1.0
+    depends_on:
+      - theinternet
+    entrypoint: cypress run --env baseUrl=http://host.docker.internal:5000
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
