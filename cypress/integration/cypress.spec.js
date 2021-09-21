@@ -10,11 +10,11 @@ describe('cypress tests', () => {
 
   it.skip('save request as a fixture', () => {
     cy.request('https://jsonplaceholder.typicode.com/todos/1').then(
-      response => {
+      (response) => {
         cy.writeFile('cypress/fixtures/test.json', response.body)
       }
     )
-    cy.readFile('cypress/fixtures/test.json').then(json => {
+    cy.readFile('cypress/fixtures/test.json').then((json) => {
       console.log(JSON.stringify(json))
     })
   })
@@ -35,9 +35,7 @@ describe('cypress tests', () => {
       // or response: 'fixture:example'
     }).as('entryad')
 
-    cy.visit(baseUrl)
-      .contains('Entry Ad')
-      .click()
+    cy.visit(baseUrl).contains('Entry Ad').click()
     cy.contains('Close').click()
 
     // this verifies that route was used
@@ -51,9 +49,5 @@ describe('cypress tests', () => {
     // lodash
     const randomBool = Cypress._.sample([true, false])
     console.log(randomBool)
-
-    // moment
-    const date = Cypress.moment()
-    console.log(date.toString())
   })
 })
